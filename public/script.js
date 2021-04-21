@@ -42,6 +42,7 @@ myPeer.on('open', id => {
 function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video')
+	resizeVideo()
   call.on('stream', userVideoStream => {
     addVideoStream(video, userVideoStream)
   })
@@ -58,11 +59,11 @@ function addVideoStream(video, stream) {
   video.addEventListener('loadedmetadata', () => {
     video.play()
   })
-	resizeVideo(video)
   videoGrid.append(video)
 }
 
-async function resizeVideo(video) {
-	const tagVideo = await document.getElementsByTagName("video");
-	video.style.width = (parseInt(100 / tagVideo.length))+"%";
+function resizeVideo() {
+	const tagVideo = document.getElementsByTagName("video");
+	//tagVideo.style.width = (parseInt(100 / tagVideo.length))+"%";
+	console.log(tagVideo);
 }
