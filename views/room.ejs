@@ -8,7 +8,11 @@
     <script src="/socket.io/socket.io.js" defer ></script>
     <script src="../script.js" defer></script>
 		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Harmattan&display=swap');
 			* {
+				font-family: 'Harmattan', sans-serif;
+				text-decoration:none; 
+				text-align: center;
 				margin: 0;
 				padding: 0;
 			}
@@ -24,7 +28,7 @@
 			}
 			.main-video .header,.header a {
 				width: 100%;
-				height: 10%;
+				background: cornflowerblue;
 				color: black;
 			}
 			.main-video .menu .video-hud {
@@ -52,7 +56,7 @@
     <script>
 			let $ = document.querySelector.bind(document);
       $('#roomURL').href = '/room/'+ROOM_ID;
-      $('#roomURL').text = ROOM_ID;
+      $('#roomURL').text = ' '+ROOM_ID;
     </script>
 </body>
 </html>
