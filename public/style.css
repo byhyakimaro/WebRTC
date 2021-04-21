@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  paddin: 0;
+}
+.header {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 40px;
+  background: dodgerblue;
+  margin: 30px 100px;
+  border-radius: 8px;
+ 	font-family: 'Ubuntu Mono', monospace;
+}
+.main .connect {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main .connect .text-join {
+  width: 100%;
+}
+.main .connect .input-join {
+  width: 100%;
+}
+.main .connect .button-join {
+  width: 100%;
+}
+.main .connect .create-room {
+  width: 100%;
+}
