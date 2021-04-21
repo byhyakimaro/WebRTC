@@ -59,6 +59,6 @@ function addVideoStream(video, stream) {
     video.play()
   })
   videoGrid.append(video)
-	var tagVideo = document.getElementsByTagName("video");
+	const tagVideo = document.getElementsByTagName("video");
 	video.style.width = (100 / tagVideo.length)+"%";
 }
