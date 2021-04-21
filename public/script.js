@@ -58,7 +58,11 @@ function addVideoStream(video, stream) {
   video.addEventListener('loadedmetadata', () => {
     video.play()
   })
+	resizeVideo(video)
   videoGrid.append(video)
-	const tagVideo = document.getElementsByTagName("video");
-	video.style.width = (100 / tagVideo.length)+"%";
+}
+
+async function resizeVideo(video) {
+	const tagVideo = await document.getElementsByTagName("video");
+	video.style.width = (parseInt(100 / tagVideo.length))+"%";
 }
