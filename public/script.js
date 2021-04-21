@@ -5,6 +5,7 @@ const myPeer = new Peer(undefined, {
   path: '/peerjs',  
 })
 const myVideo = document.createElement('video')
+const tagVideo = document.getElementsByTagName("video")
 myVideo.muted = true
 const peers = {}
 navigator.mediaDevices.getUserMedia({
@@ -16,6 +17,7 @@ navigator.mediaDevices.getUserMedia({
   myPeer.on('call', call => {
     call.answer(stream)
     const video = document.createElement('video')
+		video.style.width = (parseInt(99 / (tagVideo.length+1)))+"%";
     call.on('stream', userVideoStream => {
       addVideoStream(video, userVideoStream)
     })
@@ -42,13 +44,14 @@ myPeer.on('open', id => {
 function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video')
-	resizeVideo()
+	video.style.width = (parseInt(99 / (tagVideo.length+1)))+"%";
   call.on('stream', userVideoStream => {
     addVideoStream(video, userVideoStream)
   })
   call.on('close', () => {
     console.log("Removing video");
     video.remove()
+		$('video').style.width = (parseInt(99 / tagVideo.length))+"%";
   })
 
   peers[userId] = call
@@ -60,10 +63,5 @@ function addVideoStream(video, stream) {
     video.play()
   })
   videoGrid.append(video)
-}
-
-function resizeVideo() {
-	const tagVideo = document.getElementsByTagName("video");
-	//tagVideo.style.width = (parseInt(100 / tagVideo.length))+"%";
-	console.log(tagVideo);
+	$('video').style.width = (parseInt(99 / tagVideo.length))+"%";
 }
