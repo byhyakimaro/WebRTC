@@ -26,7 +26,17 @@
         <button onclick="window.location.href='/create';">Create Room</button>  
     </div>
       </div>
-    <script src="home.js"></script>
+    <script>
+			let $ = document.querySelector.bind(document);
+			function joinRoom () {
+  			var roomId = $('#roomId').value;
+  			if(roomId != '')
+  				window.location.href='/room/'+roomId;
+				else {
+    			$('roomId').error("required");
+				}
+			}
+		</script>
 </div>
 </body>
 </html>

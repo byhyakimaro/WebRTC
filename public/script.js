@@ -56,6 +56,7 @@ function connectToNewUser(userId, stream) {
 function addVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
+		video.style.width = (100 / 2)+"%";
     video.play()
   })
   videoGrid.append(video)
