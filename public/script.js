@@ -13,18 +13,17 @@ navigator.mediaDevices.getUserMedia({
 }).then(stream => {
   addVideoStream(myVideo, stream)
 
-  myPeer.on('call', call => {
-    call.answer(stream)
-    const video = document.createElement('video')
-    call.on('stream', userVideoStream => {
-      addVideoStream(video, userVideoStream)
-    })
-    call.on('close', () => {
-        console.log("1yRemoving video");
-        video.remove()
-      })
-    
+myPeer.on('call', call => {
+  call.answer(stream)
+  const video = document.createElement('video')
+  call.on('stream', userVideoStream => {
+    addVideoStream(video, userVideoStream)
   })
+  call.on('close', () => {
+    alert('Usuario Desconectou!');
+    video.remove()
+  })
+})
 
   socket.on('user-connected', userId => {
     connectToNewUser(userId, stream)
