@@ -1,7 +1,7 @@
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
-  host: 'zoom-clone.umairkdev.repl.co',
+  host: 'webrtc.knownetworkssec.repl.co',
   path: '/peerjs',  
 })
 const myVideo = document.createElement('video')
